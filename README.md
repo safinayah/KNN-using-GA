@@ -17,10 +17,13 @@
 
 
 <h2>Fitness function </h2>
-    <p>label or Yr(D) : represents the classification of accuracy of the KNN classifier <br>
-    |total| or |R| = number of selected features that equals to number of ones in the vector came from GA<br>
-    total| or |C| total number of features in hte dataset that equals no of file's lines<br>
-    alpha and beta are important parameters to the importance of classification quality and subset lenght<br>
-    alpha is any number between zero and one<br>
-    beta equals 1-alpha<br>
-    equation :  fitness = aYr(D)+B (1- |R|/|C|)</p><br>
+<ul> 
+    <li>label or Yr(D) : represents the classification of accuracy of the KNN classifier </li>
+    <li>|total number of ones| or |R| = number of selected features that equals to number of ones in the vector came from GA</li>
+    <li>|total| or |C| total number of features in hte dataset that equals no of file's lines</li>
+    <li>alpha and beta are important parameters to the importance of classification quality and subset lenght</li>
+    <li>alpha is any number between zero and one</li>
+    <li>beta equals 1-alpha</li>
+    <li>equation :  fitness = aYr(D)+B (1- |R|/|C|)</li>
+ </ul>
+ 
