@@ -1,6 +1,6 @@
 # KNN-using-GA
 <H1>Main Idea</h1>
- <p>This project contains three datasets files that should be represented as a population for GA</p><br> 
+ <p>This project will use GA to select features for K-NN and calculate accuracy for the provided datasets</p><br> 
 <h2>Steps</h2>
     <ol> 
         <li>count number of lines in files</li>
