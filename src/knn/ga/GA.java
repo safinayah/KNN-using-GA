@@ -14,6 +14,8 @@ import java.util.Random;
 public class GA {
 
     Population population = new Population();
+    
+    
     /*this method selects two individuals that have the the index of the generated random numbers*/
     public void randomSelection(Population population) {
 
