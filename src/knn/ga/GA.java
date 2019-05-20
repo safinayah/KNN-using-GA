@@ -12,8 +12,9 @@ import java.util.Random;
  * @author ayah
  */
 public class GA {
-    
-    Population population = new Population(); 
+
+    Population population = new Population();
+    /*this method selects two individuals that have the the index of the generated random numbers*/
     public void randomSelection(Population population) {
 
         int rn1 = (int) (Math.random() * population.getNoOfElements());//will represent first individual that will be randomly choosen 
@@ -22,11 +23,12 @@ public class GA {
         byte[] sec = population.getIndividual()[rn2];
 
     }
-    
-        //Crossover
+
+    /*this method call will crossover the idividuals 
+    *by swaping values on the crossover edge using a temp variable
+    */
     void crossover(Individual firstParent, Individual secondParent) {
         Random rn = new Random();
-        
 
         //Select a random crossover point
         int crossOverPoint = rn.nextInt(population.individuals[0].geneLength);
@@ -42,7 +44,11 @@ public class GA {
     }
     
     
-     public void Mutation(Individual firstParent, Individual secondParent) {
+    /*this will mutate individuals randomly 
+    *by changing the the gene located in the random number index
+    *and flip it to zero when its one and to one when its zero  
+    */
+    public void Mutation(Individual firstParent, Individual secondParent) {
 
         int randomNumber = (int) (Math.random() * firstParent.geneLength);
         if (firstParent.genes[randomNumber] == 0) {
@@ -58,12 +64,13 @@ public class GA {
         }
 
     }
-
- 
     
-       public Population replacement(Individual indOne, Individual indTwo, Population pop) {
-        Individual indiv = new Individual();
-             int rnOne = (int) (Math.random() * pop.getNoOfElements());
+    /*when this method called it will take the
+      *individuals and replace them randomly 
+    */
+    public Population replacement(Individual indOne, Individual indTwo, Population pop) {
+
+        int rnOne = (int) (Math.random() * pop.getNoOfElements());//random number to represent the array index 
         int rnTwo = (int) (Math.random() * pop.getNoOfElements());
         if (rnOne != rnTwo) {
             pop.getIndividual()[rnTwo] = indOne.genes;
@@ -73,8 +80,7 @@ public class GA {
             pop.getIndividual()[rnOne] = indOne.genes;
             pop.getIndividual()[rnTwo] = indTwo.genes;
         }
-        return population;
+        return population;//the new population with new individuals 
     }
-
 
 }
