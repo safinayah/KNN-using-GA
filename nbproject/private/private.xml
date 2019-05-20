@@ -5,7 +5,7 @@
         <group>
             <file>file:/home/ayah/AI/Projects/KNN/src/knn/ga/Individual.java</file>
             <file>file:/home/ayah/AI/Projects/KNN/src/knn/ga/Replacement.java</file>
-            <file>file:/home/ayah/AI/Projects/KNN/src/knn/ga/FitnessFunction.java</file>
+            <file>file:/home/ayah/AI/Projects/KNN/src/knn/algorithm/FitnessFunction.java</file>
             <file>file:/home/ayah/AI/Projects/KNN/src/knn/ga/Population.java</file>
             <file>file:/home/ayah/AI/Projects/KNN/src/knn/ga/GA.java</file>
             <file>file:/home/ayah/AI/Projects/KNN/src/knn/run/Driver.java</file>

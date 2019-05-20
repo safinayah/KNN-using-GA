@@ -20,8 +20,7 @@ public class Individual {
     int geneLength = 5;
 
     public Individual() {
-        Random rn = new Random();
-
+     
         //Set genes randomly for each individual
         for (int i = 0; i < genes.length; i++) {
             byte gene = (byte) Math.round(Math.random());
@@ -31,16 +30,7 @@ public class Individual {
         fitness = 0;
     }
 
-    //Calculate fitness
-    public void calcFitness() {
 
-        fitness = 0;
-        for (int i = 0; i < 5; i++) {
-            if (genes[i] == 1) {
-                ++fitness;
-            }
-        }
-    }
 
     
 }
