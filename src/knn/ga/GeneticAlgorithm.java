@@ -5,13 +5,15 @@
  */
 package knn.ga;
 
+import knn.entities.Population;
+import knn.entities.Individual;
 import java.util.Random;
 
 /**
  *
  * @author ayah
  */
-public class GA {
+public class GeneticAlgorithm {
 
     Population population = new Population();
     
@@ -29,17 +31,17 @@ public class GA {
     /*this method call will crossover the idividuals 
     *by swaping values on the crossover edge using a temp variable
     */
-    void crossover(Individual firstParent, Individual secondParent) {
+    public void crossover(Individual firstParent, Individual secondParent) {
         Random rn = new Random();
 
         //Select a random crossover point
-        int crossOverPoint = rn.nextInt(population.individuals[0].geneLength);
+        int crossOverPoint = (int) (Math.random()*firstParent.getGeneLength());
 
         //Swap values among parents
         for (int i = 0; i < crossOverPoint; i++) {
-            byte temp = firstParent.genes[i];
-            firstParent.genes[i] = secondParent.genes[i];
-            secondParent.genes[i] = temp;
+            byte temp = firstParent.getGenes()[i];
+            firstParent.getGenes()[i] = secondParent.getGenes()[i];
+            secondParent.getGenes()[i] = temp;
 
         }
 
@@ -52,17 +54,17 @@ public class GA {
     */
     public void Mutation(Individual firstParent, Individual secondParent) {
 
-        int randomNumber = (int) (Math.random() * firstParent.geneLength);
-        if (firstParent.genes[randomNumber] == 0) {
-            firstParent.genes[randomNumber] = 1;
-        } else if (firstParent.genes[randomNumber] == 1) {
-            firstParent.genes[randomNumber] = 0;
+        int randomNumber = (int) (Math.random() * firstParent.getGeneLength());
+        if (firstParent.getGenes()[randomNumber] == 0) {
+            firstParent.getGenes()[randomNumber] = 1;
+        } else if (firstParent.getGenes()[randomNumber] == 1) {
+            firstParent.getGenes()[randomNumber] = 0;
         }
 
-        if (secondParent.genes[randomNumber] == 0) {
-            secondParent.genes[randomNumber] = 1;
-        } else if (secondParent.genes[randomNumber] == 1) {
-            secondParent.genes[randomNumber] = 0;
+        if (secondParent.getGenes()[randomNumber] == 0) {
+            secondParent.getGenes()[randomNumber] = 1;
+        } else if (secondParent.getGenes()[randomNumber] == 1) {
+            secondParent.getGenes()[randomNumber] = 0;
         }
 
     }
@@ -75,12 +77,12 @@ public class GA {
         int rnOne = (int) (Math.random() * pop.getNoOfElements());//random number to represent the array index 
         int rnTwo = (int) (Math.random() * pop.getNoOfElements());
         if (rnOne != rnTwo) {
-            pop.getIndividual()[rnTwo] = indOne.genes;
+            pop.getIndividual()[rnTwo] = indOne.getGenes();
         }
         if (rnOne == rnTwo) {
             rnTwo = (int) (Math.random() * pop.getNoOfElements());
-            pop.getIndividual()[rnOne] = indOne.genes;
-            pop.getIndividual()[rnTwo] = indTwo.genes;
+            pop.getIndividual()[rnOne] = indOne.getGenes();
+            pop.getIndividual()[rnTwo] = indTwo.getGenes();
         }
         return population;//the new population with new individuals 
     }

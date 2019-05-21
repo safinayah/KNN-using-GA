@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package knn.ga;
+package knn.entities;
 
+import knn.entities.Individual;
 import java.util.Arrays;
 
 /**
@@ -13,11 +14,9 @@ import java.util.Arrays;
  */
 public class Population {
 
-    Individual[] individuals;
-    private int populationSize;
-    private int maxWeight = 90;//enterd by user 
+    public Individual[] individuals = new Individual[10];
+    private int populationSize=10;
     private Individual solution = new Individual();
-    private int capacity = 10;//represents knapsack weight
     private int noOfElements = 10;
     private byte individual[][];
 
@@ -27,10 +26,14 @@ public class Population {
         individual = new byte[populationSize][noOfElements];
         for (int i = 0; i < populationSize; i++) {
             solution = new Individual();
-
-            individual[i] = solution.genes;
+            individual[i] = solution.getGenes();
 
         }
+        
+        
+        for (int i = 0; i < individuals.length; i++) {
+            individuals[i] = new Individual();
+}
     }
 
     public int size() {
@@ -47,21 +50,7 @@ public class Population {
 
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
-    public int getMaxWeight() {
-        return maxWeight;
-    }
-
-    public void setMaxWeight(int maxWeight) {
-        this.maxWeight = maxWeight;
-    }
+   
 
     public byte[][] getIndividual() {
         return individual;

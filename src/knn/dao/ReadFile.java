@@ -4,52 +4,67 @@
  * and open the template in the editor.
  */
 package knn.dao;
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
+
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader; 
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import knn.entities.Features;
 
 /**
  *
  * @author ayah
  */
 public class ReadFile {
-    
-    public void readFile() throws FileNotFoundException, IOException{
+
+    Features feature = new Features();
+
+    public void readFile(String fileName) {
+        ArrayList<ArrayList<Integer>> a = new ArrayList<ArrayList<Integer>>();
+        File x = new File(fileName);
         
-        FileReader fr=new FileReader("D:\\testout.txt");    
-          int i;    
-          while((i=fr.read())!=-1)    
-          System.out.print((char)i);    
-          fr.close();    
-    
-    
-    }
-    
-    
-    public int countLines() throws IOException{
-    
-                InputStream is = new BufferedInputStream(new FileInputStream(""));
-    try {
-        byte[] c = new byte[1024];
-        int count = 0;
-        int readChars = 0;
-        boolean empty = true;
-        while ((readChars = is.read(c)) != -1) {
-            empty = false;
-            for (int i = 0; i < readChars; ++i) {
-                if (c[i] == '\n') {
-                    ++count;
-                }
+        
+        if (x.exists()) {//checks of the file exist
+
+            Scanner input = null;//initilalize input scanner
+            try {
+                input = new Scanner(x); // Scanning
+
+            } catch (FileNotFoundException ex) {
+                System.out.println("noooooo data!!!!!!!!!!!");
             }
+            int j = 0;
+            while (input.hasNext()) {//checks if the file has nextLine
+
+            }
+
         }
-        return (count == 0 && !empty) ? 1 : count;
-    } finally {
-        is.close();
+
     }
-    
-    }
-    
+
+    public int numOfLines() {//calculates num of file's line
+        int num = 0;//initialize num
+
+        File x = new File("data.txt"); //This is used to input the movies text
+
+        if (x.exists()) {//checks of the file exist
+
+            Scanner input = null;//initilalize input scanner
+            try {
+                input = new Scanner(x);
+            } catch (FileNotFoundException ex) {
+                System.out.println("File not found");
+            }
+
+            while (input.hasNextLine()) {//checks if the file has nextLine
+                input.nextLine(); // This is used to get to the next line
+                num++;
+
+            }//end of while loop
+            input.close();
+        }//end of class
+
+        return num;//returns number of file's lines
+    }//end of method
 }
