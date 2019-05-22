@@ -36,6 +36,11 @@ public class Features {
     public void setIndex(int index) {
         this.index = index;
     }
+
+    @Override
+    public String toString() {
+        return "Features{" + "index=" + index + ", distance=" + distance + '}';
+    }
     
     
 

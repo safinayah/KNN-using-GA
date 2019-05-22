@@ -6,6 +6,7 @@
 package knn.run;
 
 import java.util.Arrays;
+import knn.algorithm.Algorithm;
 import knn.entities.Population;
 import knn.ga.GeneticAlgorithm;
 import knn.entities.Individual;
@@ -37,9 +38,6 @@ public class Driver {
             }
                
         }
-//        System.out.println(Arrays.deepToString(pop.getIndividual()));
-
-      
      
        
     }
